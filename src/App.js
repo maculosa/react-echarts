@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+
+import LineChart from './components/LineChart'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LineChart
+        title="Line"
+        xAxisData={
+          ["Tencent", "MI", "Google", "Facebook", "Alibaba", "Baidu"]
+        }
+        series={
+          [
+            {
+              name: "评分",
+              type: "line",
+              data: [6, 6.7, 8, 7, 7.8, 5],
+              smooth: true
+            },
+            {
+                name: "点赞",
+                type: "line",
+                data: [6, 4, 8, 5, 9, 5.4],
+                smooth: true
+              },
+          ]
+        }
+      />
     </div>
   );
 }
